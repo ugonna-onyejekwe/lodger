@@ -1,0 +1,174 @@
+@import "../variables.scss";
+
+.auth_page {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: $bg_color;
+
+  .form_container {
+    width: 50%;
+    padding: 0 100px;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      color: $text_color;
+      margin-top: 50px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 70px;
+    }
+
+    .txt {
+      padding: 10px 0;
+    }
+
+    .google_signIn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: $text_color;
+      border: 1px solid $border_color;
+      opacity: 1;
+      width: 100%;
+      justify-content: center;
+      padding: 10px;
+      margin-top: 30px;
+      font-size: 13px;
+      transition: 0.4s ease;
+
+      &:hover {
+        background: rgb(251, 247, 247);
+      }
+
+      span {
+        font-size: 20px;
+        padding-top: 3px;
+      }
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 30px 0;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: $text_color_light;
+      position: relative;
+      width: 100%;
+      font-size: 14px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 45%;
+        background: grey;
+        height: 1px;
+      }
+
+      &::before {
+        left: 0;
+      }
+
+      &::after {
+        right: 0;
+      }
+    }
+
+    form {
+      .input_con {
+        display: flex;
+        flex-direction: column;
+
+        &:first-child {
+          margin-bottom: 25px;
+        }
+
+        input {
+          width: 100%;
+          border: none;
+          padding: 0 0 5px 5px;
+          border-bottom: 1px solid $border_color;
+
+          &::placeholder {
+            text-transform: capitalize;
+            color: grey;
+          }
+        }
+        span {
+          font-size: 12px;
+          color: red;
+        }
+      }
+
+      .submit_btn {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+
+    .switch {
+      margin-top: 20px;
+      text-align: center;
+
+      a {
+        color: $text_color;
+      }
+    }
+  }
+
+  .img_con {
+    width: 50%;
+    position: relative;
+
+    .txt_con {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 30px 50px 30px;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.279),
+        rgba(0, 0, 0, 0.13),
+        rgba(0, 0, 0, 0.046)
+      );
+
+      h2 {
+        text-transform: capitalize;
+        font-size: 30px;
+        color: white;
+      }
+
+      p {
+        color: rgb(200, 199, 199);
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .form_container {
+      padding: 0 50px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    height: fit-content;
+
+    .img_con {
+      display: none;
+    }
+
+    .form_container {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@import "../../app/variables.scss";
+
+.navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: $bg_color;
+  box-shadow: 0 0 5px rgb(203, 202, 202);
+  padding: 20px 0;
+  z-index: 100;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navigators {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        a {
+          text-transform: capitalize;
+          text-decoration: none;
+          color: $text_color_light;
+          font-weight: 500;
+          font-size: 15px;
+          transition: 0.4s ease;
+
+          &:hover {
+            color: $text_color;
+          }
+
+          &.btn {
+            padding: 10px 15px;
+            font-size: 13px;
+            border: 2px solid $text_color_light;
+            border-radius: 5px;
+
+            &:hover {
+              border-color: black;
+            }
+          }
+
+          &.signin_btn {
+            background: black;
+            color: white;
+            border-color: black;
+          }
+        }
+      }
+
+      .user_con {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+
+        .avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          overflow: hidden;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
