@@ -1,113 +1,147 @@
 @import "./variables.scss";
 
 .home_page {
-  margin-top: 150px;
+  margin-top: 100px;
 
-  .box_con {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  .container {
+    display: flex;
+    gap: 30px;
 
-    .house_box {
+    .filter_section {
+      max-width: 300px;
+      min-width: 200px;
       flex: 1;
-      box-shadow: 0 0 5px rgb(220, 218, 218);
       background: $bg_color;
-      border-radius: 5px;
-      overflow: hidden;
+      position: sticky;
+      top: 100px;
       height: fit-content;
-      cursor: pointer;
+    }
 
-      &:hover {
-        .img_con img {
-          transform: scale(1.05);
-        }
-      }
+    .house_wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      flex: 1;
+      justify-content: center;
 
-      .img_con {
-        height: 250px;
+      .house_box {
+        flex: 1;
+        max-width: 500px;
+        min-width: 300px;
+        box-shadow: 0 0 5px rgb(220, 218, 218);
+        background: $bg_color;
+        border-radius: 5px;
         overflow: hidden;
+        height: fit-content;
+        cursor: pointer;
 
-        img {
-          transition: 0.4s ease;
-        }
-      }
-
-      .txt_con {
-        padding: 15px;
-
-        h3 {
-          display: flex;
-          align-items: center;
-          font-size: 16px;
-
-          span {
-            font-size: 20px;
-            line-height: 0;
-            padding-bottom: 2px;
-          }
-
-          small {
-            font-size: 12px;
-            color: $text_color_light;
-            font-weight: 500;
+        &:hover {
+          .img_con img {
+            transform: scale(1.05);
           }
         }
 
-        h4 {
-          color: $text_color_light;
-          font-size: 14px;
-          font-weight: 500;
-          padding-top: 3px;
+        .img_con {
+          height: 250px;
+          overflow: hidden;
+          position: relative;
+
+          img {
+            transition: 0.4s ease;
+          }
+
+          .active_btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+          }
+
+          .btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+          }
         }
 
-        .btn_section {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          margin-top: 20px;
-          justify-content: space-between;
+        .txt_con {
+          padding: 15px;
 
-          .location {
+          h3 {
             display: flex;
             align-items: center;
-            gap: 2px;
+            font-size: 16px;
 
             span {
               font-size: 20px;
+              line-height: 0;
+              padding-bottom: 2px;
+            }
+
+            small {
+              font-size: 12px;
+              color: $text_color_light;
+              font-weight: 500;
             }
           }
 
-          .bookmark_btn {
-            border: 1px solid $text_color_light;
-            font-size: 20px;
-            height: 35px;
-            width: 35px;
+          h4 {
+            color: $text_color_light;
+            font-size: 14px;
+            font-weight: 500;
+            padding-top: 5px;
+          }
+
+          .btn_section {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            cursor: pointer;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: space-between;
 
-            .bookmark_icon {
-              pointer-events: none;
+            .location {
+              display: flex;
+              align-items: center;
+              gap: 2px;
+
+              span {
+                font-size: 20px;
+              }
+            }
+
+            .bookmark_btn {
+              border: 1px solid $text_color_light;
+              font-size: 20px;
+              height: 35px;
+              width: 35px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50%;
+              cursor: pointer;
+
+              .bookmark_icon {
+                pointer-events: none;
+              }
             }
           }
         }
+      }
+
+      @media (max-width: 768px) {
+        .house_box .img_con {
+          height: 250px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        min-width: 100%;
       }
     }
 
     @media (max-width: 900px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: 768px) {
-      .house_box .img_con {
-        height: 250px;
+      .filter_section {
+        display: none;
       }
-    }
-
-    @media (max-width: 500px) {
-      grid-template-columns: 1fr;
     }
   }
 }

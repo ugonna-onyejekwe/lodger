@@ -8,13 +8,19 @@ import { TbCurrencyNaira } from "react-icons/tb";
 import { IoLocationOutline } from "react-icons/io5";
 import { BiCheckDouble } from "react-icons/bi";
 import { PiShareFatBold } from "react-icons/pi";
-
-// Image imports
-import image1 from "../../../assets/house-1867187_1280.jpg";
-import image2 from "../../../assets/pexels-wdnet-101808.jpg";
-import image3 from "../../../assets/signUp-bg.jpg";
 import avatar from "../../../assets/avatar.jpg";
 import { ContactAgent } from "@/components/contact_agent";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import {
+  ForRentBtn,
+  ForSaleBtn,
+  RoommateWantedBtn,
+} from "@/components/buttons/buttons";
 
 export default function HomeDetails({ params }: { params: string }) {
   const { id } = useParams();
@@ -26,13 +32,29 @@ export default function HomeDetails({ params }: { params: string }) {
     <div className="home_details_page">
       <div className="container">
         <div className="img_wrapper">
-          <div className="img_swipper">
-            <Image src={image3} alt="image" />
-          </div>
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={10}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            className="img_swipper"
+          >
+            {house?.images.map((image) => {
+              return (
+                <SwiperSlide>
+                  <img src={image} alt="image" />
+                </SwiperSlide>
+              );
+            })}
+            <div className="tag">
+              {house?.forSale ? <ForSaleBtn /> : <ForRentBtn />}
+            </div>{" "}
+          </Swiper>
 
           <div className="img_box_con">
             <div className="img_con">
-              <Image src={image2} alt="image" />
+              <img src={house?.images[1]} alt="image" />
 
               <div className="overlay">
                 <span>
@@ -41,7 +63,7 @@ export default function HomeDetails({ params }: { params: string }) {
               </div>
             </div>
             <div className="img_con">
-              <Image src={image1} alt="image" />
+              <img src={house?.images[2]} alt="image" />
 
               <div className="overlay">
                 <span>+4</span>
@@ -58,12 +80,15 @@ export default function HomeDetails({ params }: { params: string }) {
                   <TbCurrencyNaira />
                 </span>
                 {house?.price.toLocaleString()}
+                {house?.forSale ? "" : <small>/{house?.durationOfPay}</small>}
               </h3>
 
               <span className="share_btn">
                 <PiShareFatBold />
               </span>
             </div>
+
+            <p className="name">{house?.name}</p>
 
             <p className="address">
               <span>
@@ -73,7 +98,17 @@ export default function HomeDetails({ params }: { params: string }) {
               {house?.address}
             </p>
 
-            <p className="house_type">self contain</p>
+            {house?.roommateWanted && (
+              <div className="roomate_wanted_con">
+                <RoommateWantedBtn />
+                <p> Actively looking for roomate</p>
+              </div>
+            )}
+            <div className="house_category">
+              {house?.category?.map((i, key) => (
+                <span key={key}>{i}</span>
+              ))}
+            </div>
 
             <div className="txt">
               <h4>house details</h4>

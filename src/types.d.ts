@@ -1,9 +1,12 @@
 type HouseType = {
   houseId: number;
-  // images: any[];
+  images: string[];
   name: string;
   durationOfPay: string;
   price: number;
   type: string;
   address: string;
+  category?: string[];
+  forSale?: boolean;
+  roommateWanted?: boolean;
 };

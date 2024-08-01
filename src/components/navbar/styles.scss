@@ -7,13 +7,29 @@
   right: 0;
   background: $bg_color;
   box-shadow: 0 0 5px rgb(203, 202, 202);
-  padding: 20px 0;
   z-index: 100;
 
   .container {
+    padding: 20px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
+
+    .search_bar {
+      max-width: 400px;
+      width: 100%;
+      border: 1px solid $border_color;
+      border-radius: 5px;
+      overflow: hidden;
+
+      input {
+        outline: none;
+        border: none;
+        width: 100%;
+        padding: 10px 15px;
+      }
+    }
 
     .navigators {
       display: flex;
@@ -36,23 +52,22 @@
           &:hover {
             color: $text_color;
           }
+        }
+      }
 
-          &.btn {
-            padding: 10px 15px;
-            font-size: 13px;
-            border: 2px solid $text_color_light;
-            border-radius: 5px;
+      .btn {
+        padding: 10px 15px;
+        font-size: 13px;
+        border-radius: 5px;
+        background: black;
+        color: white;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: 0.4s ease;
+        text-decoration: none;
 
-            &:hover {
-              border-color: black;
-            }
-          }
-
-          &.signin_btn {
-            background: black;
-            color: white;
-            border-color: black;
-          }
+        &:hover {
+          opacity: 1;
         }
       }
 
@@ -69,6 +84,61 @@
           overflow: hidden;
           object-fit: cover;
         }
+      }
+
+      @media (max-width: 900px) {
+        .links {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.tablet_nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: $bg_color;
+  width: 100%;
+  box-shadow: 0 0 5px $box_shadow;
+  display: none;
+
+  @media (max-width: 900px) {
+    display: block;
+  }
+
+  .container {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      text-transform: capitalize;
+      font-weight: 500;
+      color: $text_color_light;
+      transition: 0.4s ease;
+
+      &:hover,
+      &.active {
+        color: $text_color;
+      }
+
+      span {
+        line-height: 0;
+        font-size: 10px;
+      }
+
+      small {
+        font-size: 20px;
       }
     }
   }

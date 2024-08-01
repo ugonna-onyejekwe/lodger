@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import {
   IoHeartOutline,
@@ -7,17 +5,18 @@ import {
   IoLocationOutline,
 } from "react-icons/io5";
 import { TbCurrencyNaira } from "react-icons/tb";
-
-// Image import
-import image from "../assets/signUp-bg.jpg";
+import { ForRentBtn, ForSaleBtn, RoommateWantedBtn } from "./buttons/buttons";
 
 export const House = ({
   houseId,
   price,
   type,
+  images,
   address,
   name,
   durationOfPay,
+  roommateWanted,
+  forSale,
 }: HouseType) => {
   const [bookMarked, setBookMarked] = useState(false);
 
@@ -34,7 +33,15 @@ export const House = ({
       }}
     >
       <div className="img_con">
-        <Image src={image} alt="image" />
+        <img src={images[0]} alt="image" />
+
+        {roommateWanted && (
+          <div className="active_btn">
+            <RoommateWantedBtn />
+          </div>
+        )}
+
+        <div className="btn">{forSale ? <ForSaleBtn /> : <ForRentBtn />}</div>
       </div>
 
       <div className="txt_con">
@@ -43,7 +50,7 @@ export const House = ({
             <TbCurrencyNaira />
           </span>
           {price.toLocaleString()}
-          <small>/{durationOfPay}</small>
+          {forSale || <small>/{durationOfPay}</small>}
         </h3>
 
         <h4>{name.length > 30 ? name.slice(0, 35) + "..." : name}</h4>

@@ -1,0 +1,155 @@
+@import "../../app/variables.scss";
+
+.filter_container {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+
+  .wrapper {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 75vh;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      h3 {
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+      }
+
+      &.active_roommate_col {
+        flex-direction: row;
+        h4 {
+          color: $text_color_light;
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+
+      &.house_type_col {
+        .box_con {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          .box {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 5px;
+            align-items: center;
+            justify-content: left;
+
+            label {
+              font-size: 14px;
+              color: $text_color_light;
+              cursor: pointer;
+            }
+
+            input {
+              accent-color: $text_color;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      &.bedrooms_col {
+        select {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid $border_color;
+          border-radius: 5px;
+          overflow: hidden;
+        }
+      }
+
+      &.price_col {
+        h3 span {
+          font-size: 20px;
+          line-height: 15px;
+        }
+
+        .box_con {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .input_box {
+            border: 1px solid $border_color;
+            border-radius: 5px;
+            overflow: hidden;
+            flex: 1;
+
+            input {
+              width: 100%;
+              padding: 10px;
+              border: none;
+              outline: none;
+            }
+          }
+        }
+      }
+
+      &.amen_col {
+        .box_con {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          .box {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 5px;
+            align-items: center;
+            justify-content: left;
+
+            label {
+              color: $text_color_light;
+              font-size: 14px;
+              cursor: pointer;
+            }
+
+            input {
+              accent-color: $text_color;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .btn_con {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 5px $box_shadow;
+    padding: 10px;
+    background: $bg_color;
+    flex-wrap: wrap;
+
+    button {
+      padding: 10px 20px;
+      min-width: 120px;
+      flex: 1;
+      font-size: 13px;
+    }
+  }
+}
