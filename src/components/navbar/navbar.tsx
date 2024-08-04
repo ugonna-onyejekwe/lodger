@@ -31,12 +31,12 @@ export default function Navbar() {
               <Link href={"/"}> buy</Link>
             </div>
 
-            {true ? (
+            {false ? (
               <Link href={"/"} className="btn login_btn">
                 login
               </Link>
             ) : (
-              <Link href="/" className="user_con">
+              <Link href="/user-profile" className="user_con">
                 <div className="avatar">
                   <Image src={avatar} alt="image" />
                 </div>
@@ -45,6 +45,8 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Tablet navbar */}
       <div className="tablet_nav">
         <div className="container">
           <Link href="/">

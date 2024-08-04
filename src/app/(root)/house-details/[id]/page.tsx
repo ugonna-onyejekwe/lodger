@@ -3,26 +3,31 @@ import "./styles.scss";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { houseData } from "@/components/data";
-import { FaPlay } from "react-icons/fa";
 import { TbCurrencyNaira } from "react-icons/tb";
 import { IoLocationOutline } from "react-icons/io5";
 import { BiCheckDouble } from "react-icons/bi";
 import { PiShareFatBold } from "react-icons/pi";
 import avatar from "../../../assets/avatar.jpg";
 import { ContactAgent } from "@/components/contact_agent";
-import { Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
 import {
   ForRentBtn,
   ForSaleBtn,
   RoommateWantedBtn,
 } from "@/components/buttons/buttons";
 
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import { OverlayImage } from "@/components/overlayImage/overlayImage";
+import { useState } from "react";
+
 export default function HomeDetails({ params }: { params: string }) {
+  const [imageIsActive, setImageIsActive] = useState(false);
+
   const { id } = useParams();
   const house: HouseType | undefined = houseData.find(
     (i) => i.houseId === Number(id)
@@ -31,42 +36,39 @@ export default function HomeDetails({ params }: { params: string }) {
   return (
     <div className="home_details_page">
       <div className="container">
-        <div className="img_wrapper">
+        <div className="img_wrapper" onClick={() => setImageIsActive(true)}>
           <Swiper
             modules={[Pagination]}
             spaceBetween={10}
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
-            className="img_swipper"
+            className="img_swiper_con"
           >
-            {house?.images.map((image) => {
+            {house?.images?.map((image) => {
               return (
                 <SwiperSlide>
                   <img src={image} alt="image" />
                 </SwiperSlide>
               );
             })}
+
             <div className="tag">
-              {house?.forSale ? <ForSaleBtn /> : <ForRentBtn />}
-            </div>{" "}
+              {house?.forSale === true ? <ForSaleBtn /> : <ForRentBtn />}
+            </div>
           </Swiper>
 
           <div className="img_box_con">
-            <div className="img_con">
-              <img src={house?.images[1]} alt="image" />
-
-              <div className="overlay">
-                <span>
-                  <FaPlay />
-                </span>
-              </div>
+            <div className="img_box">
+              <img src={house?.images[1]} alt="house image" />
             </div>
-            <div className="img_con">
-              <img src={house?.images[2]} alt="image" />
+            <div className="img_box">
+              <img src={house?.images[2]} alt="house image" />
 
               <div className="overlay">
-                <span>+4</span>
+                <p>
+                  +{house?.images?.length ? house?.images?.length - 2 : null}
+                </p>
               </div>
             </div>
           </div>
@@ -199,6 +201,11 @@ export default function HomeDetails({ params }: { params: string }) {
           </div>
         </div>
       </div>
+      <OverlayImage
+        images={house?.images}
+        setImageIsActive={setImageIsActive}
+        openOverlayImages={imageIsActive}
+      />
     </div>
   );
 }

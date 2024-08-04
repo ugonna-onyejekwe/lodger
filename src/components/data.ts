@@ -68,7 +68,7 @@ export const houseData = [
     roommateWanted: true,
   },
   {
-    houseId: 12243,
+    houseId: 212243,
     images: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy04xzl5xm9Pzdpo9N2BCaNF3HKvFUirFBKA&s",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrS-e3bTPRkeOQ3jl1b9VdEpbFAuwzN18KyQ&s",
@@ -84,7 +84,7 @@ export const houseData = [
     roommateWanted: false,
   },
   {
-    houseId: 12243,
+    houseId: 121043,
     images: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy04xzl5xm9Pzdpo9N2BCaNF3HKvFUirFBKA&s",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrS-e3bTPRkeOQ3jl1b9VdEpbFAuwzN18KyQ&s",

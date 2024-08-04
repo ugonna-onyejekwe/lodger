@@ -78,3 +78,19 @@ button {
     opacity: 1;
   }
 }
+
+// swiper pagination bullets
+.img_swiper_con .swiper-pagination-bullet,
+.img_swiper .swiper-pagination-bullet {
+  background: white;
+  height: 5px;
+  width: 5px;
+  opacity: 1;
+}
+
+.img_swiper_con .swiper-pagination-bullet-active,
+.img_swiper .swiper-pagination-bullet-active {
+  background: black;
+  width: 15px;
+  border-radius: 10px;
+}
