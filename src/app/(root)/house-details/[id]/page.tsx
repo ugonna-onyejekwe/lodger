@@ -7,7 +7,7 @@ import { TbCurrencyNaira } from "react-icons/tb";
 import { IoLocationOutline } from "react-icons/io5";
 import { BiCheckDouble } from "react-icons/bi";
 import { PiShareFatBold } from "react-icons/pi";
-import avatar from "../../../assets/avatar.jpg";
+import avatar from "@/assets/avatar.jpg";
 import { ContactAgent } from "@/components/contact_agent";
 
 import {

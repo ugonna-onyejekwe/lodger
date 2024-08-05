@@ -1,3 +1,4 @@
+import { ProfileSideBar } from "@/components/profile-sidebar/sidebar";
 import type { Metadata } from "next";
 // import "../globals.scss";
 
@@ -15,9 +16,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main>
+    <main
+      style={{
+        display: "flex",
+      }}
+    >
+      <ProfileSideBar />
       {/* side bar */}
-      <div>{children}</div>
+      <div
+        style={{
+          padding: "0 30px",
+          flex: 1,
+        }}
+      >
+        {children}
+      </div>
     </main>
   );
 }

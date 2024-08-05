@@ -1,0 +1,50 @@
+@import "../../variables.scss";
+
+.settings_wrapper {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .con {
+    h3 {
+      text-transform: capitalize;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .form_con {
+      margin-top: 10px;
+      background: $bg_color;
+      padding: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+
+      form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+
+        .input_con {
+          border: 1px solid $border_color;
+          border-radius: 5px;
+          overflow: hidden;
+          flex: 1;
+
+          input {
+            outline: none;
+            border: none;
+            width: 100%;
+            padding: 15px;
+          }
+        }
+      }
+
+      .btn {
+        display: flex;
+        justify-content: right;
+        margin-top: 20px;
+      }
+    }
+  }
+}

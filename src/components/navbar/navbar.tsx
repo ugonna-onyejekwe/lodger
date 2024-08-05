@@ -4,13 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import avatar from "../../assets/avatar.jpg";
 import { Logo } from "../logo/logo";
-import { MdFilterList, MdOutlineExplore } from "react-icons/md";
 import { useState } from "react";
-import { PiHandCoinsFill } from "react-icons/pi";
-import { BiFilterAlt } from "react-icons/bi";
-import { FaChartLine } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+import { LuMenu } from "react-icons/lu";
 
 export default function Navbar() {
+  const [isActive, setIsActive] = useState(false);
   return (
     <>
       <div className="navbar">
@@ -24,11 +23,18 @@ export default function Navbar() {
             />
           </div>
 
-          <div className="navigators">
+          <div className={isActive ? "navigators active" : "navigators"}>
+            <div
+              className="menu_btn close_btn"
+              onClick={() => setIsActive(false)}
+            >
+              <IoClose />
+            </div>
             <div className="links">
               <Link href={"/"}> all</Link>
               <Link href={"/"}> rent</Link>
               <Link href={"/"}> buy</Link>
+              <Link href={"/"}>our agents</Link>
             </div>
 
             {false ? (
@@ -40,43 +46,18 @@ export default function Navbar() {
                 <div className="avatar">
                   <Image src={avatar} alt="image" />
                 </div>
+
+                <p>profile</p>
               </Link>
             )}
           </div>
+
+          <div className="menu_btn open_btn" onClick={() => setIsActive(true)}>
+            <LuMenu />
+          </div>
         </div>
-      </div>
 
-      {/* Tablet navbar */}
-      <div className="tablet_nav">
-        <div className="container">
-          <Link href="/">
-            <small>
-              <MdOutlineExplore />
-            </small>
-            <span>all</span>
-          </Link>
-
-          <Link href="/">
-            <small>
-              <PiHandCoinsFill />
-            </small>
-            <span>rent</span>
-          </Link>
-
-          <Link href="/">
-            <small>
-              <FaChartLine />
-            </small>
-            <span>buy</span>
-          </Link>
-
-          <Link href="/">
-            <small>
-              <BiFilterAlt />
-            </small>
-            <span>filter</span>
-          </Link>
-        </div>
+        <div className={isActive ? "backdrop active" : "backdrop"}></div>
       </div>
     </>
   );

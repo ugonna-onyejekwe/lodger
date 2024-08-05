@@ -1,0 +1,55 @@
+@import "../../variables.scss";
+
+.our_agent_section {
+  margin-top: 100px;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    .box {
+      background: $bg_color;
+      box-shadow: 0 0 5px $box_shadow;
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      text-decoration: none;
+
+      .img_con {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      h3 {
+        text-transform: capitalize;
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+
+      .box .img_con {
+        height: 100px;
+        width: 100px;
+      }
+    }
+
+    @media (max-width: 425px) {
+      .box {
+        padding: 10px;
+        align-items: unset;
+
+        .img_con {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+  }
+}
