@@ -10,3 +10,15 @@ type HouseType = {
   forSale?: boolean;
   roommateWanted?: boolean;
 };
+
+type AgentType = {
+  name: string;
+  location: string;
+  closedDeal: number;
+  listing: number;
+  ratings: number;
+  agentId: number;
+  averageRating: number;
+  image: string;
+  language: string[];
+};

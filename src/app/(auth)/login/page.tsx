@@ -1,7 +1,7 @@
 "use client";
 import "./style.scss";
 import Image from "next/image";
-import loginImage from "../../assets/signUp-bg.jpg";
+import loginImage from "@/assets/signUp-bg.jpg";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 

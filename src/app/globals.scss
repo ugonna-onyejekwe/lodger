@@ -95,3 +95,117 @@ button {
   width: 15px;
   border-radius: 10px;
 }
+
+// House Box
+.house_box {
+  flex: 1;
+  max-width: 500px;
+  min-width: 300px;
+  box-shadow: 0 0 5px rgb(220, 218, 218);
+  background: $bg_color;
+  border-radius: 5px;
+  overflow: hidden;
+  height: fit-content;
+  cursor: pointer;
+
+  &:hover {
+    .img_con img {
+      transform: scale(1.05);
+    }
+  }
+
+  .img_con {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      transition: 0.4s ease;
+    }
+
+    .active_btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+  }
+
+  .txt_con {
+    padding: 15px;
+
+    h3 {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+
+      span {
+        font-size: 20px;
+        line-height: 0;
+        padding-bottom: 2px;
+      }
+
+      small {
+        font-size: 12px;
+        color: $text_color_light;
+        font-weight: 500;
+      }
+    }
+
+    h4 {
+      color: $text_color_light;
+      font-size: 14px;
+      font-weight: 500;
+      padding-top: 5px;
+    }
+
+    .btn_section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: space-between;
+
+      .location {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+
+        span {
+          font-size: 20px;
+        }
+      }
+
+      .bookmark_btn {
+        border: 1px solid $text_color_light;
+        font-size: 20px;
+        height: 35px;
+        width: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+
+        .bookmark_icon {
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .img_con {
+      height: 250px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    min-width: 100%;
+  }
+}

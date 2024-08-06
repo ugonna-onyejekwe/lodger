@@ -31,10 +31,11 @@ export default function Navbar() {
               <IoClose />
             </div>
             <div className="links">
-              <Link href={"/"}> all</Link>
+              <Link href={"/"}> explore</Link>
               <Link href={"/"}> rent</Link>
               <Link href={"/"}> buy</Link>
-              <Link href={"/"}>our agents</Link>
+              <Link href={"/our-agents"}>our agents</Link>
+              <Link href={"/our-agents"}>notifications </Link>
             </div>
 
             {false ? (
