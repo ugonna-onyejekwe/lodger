@@ -32,19 +32,23 @@
         gap: 10px;
         text-decoration: none;
         text-transform: capitalize;
+        font-size: 15px;
+        padding: 18px;
         color: $text_color_light;
+        font-weight: 500;
         transition: 0.4s ease;
-        padding: 15px;
+        position: relative;
         border-radius: 5px;
-        span {
-          font-size: 18px;
-          line-height: 0;
-        }
 
         &.active,
         &:hover {
-          color: white;
-          background: $text_color;
+          background: $bg_color_alt;
+          color: $text_color;
+        }
+
+        span {
+          font-size: 20px;
+          line-height: 0;
         }
       }
     }
@@ -59,6 +63,8 @@
     text-transform: capitalize;
     font-size: 15px;
     transition: 0.4s ease;
+    font-weight: 500;
+
     span {
       line-height: 0;
     }

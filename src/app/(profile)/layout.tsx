@@ -21,8 +21,10 @@ export default function RootLayout({
         display: "flex",
       }}
     >
-      <ProfileSideBar />
       {/* side bar */}
+
+      <ProfileSideBar />
+
       <div
         style={{
           padding: "0 30px",
